@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px #ddd;
+        }
+
+        .profile-img {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .info span {
+            font-weight: bold;
+        }
+
+        .links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: #007bff;
+        }
+
+        .comments-section {
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .comment p {
+            margin: 0;
+        }
+
+        #comment-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #comment-form label {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        #comment-form input[type="text"],
+        #comment-form textarea {
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+
+        #comment-form input[type="submit"] {
+            font-size: 18px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #comment-form input[type="submit"]:hover {
+            background-color: #0062cc;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="text-align: center; font-style: italic;">Learning and Laughter: Sir RJ Chavez's Elective Class is the
+            Perfect Combination of Education and Entertainment</h1>
+    </header>
+    <div class="container">
+        <img class="profile-img" src="assets/sir.jpg" alt="Profile Image">
+        <div class="name">RJ Chavez</div>
+        <div class="info">
+            <p><span>Age:</span> 20</p>
+            <p><span>Location:</span> Bulacan</p>
+            <p><span>Occupation:</span> Professor</p>
+        </div>
+        <div class="links">
+            <a href="https://www.facebook.com/dunkie2396">Facebook</a>
+        </div>
+        <div class="comments-section">
+            <h2>Comments</h2>
+            <div id="comments">
+                <div class="comment">
+                    <p><strong>Luigi Bugayong:</strong> Sir RJ Chavez is a truly remarkable individual, possessing both
+                        intelligence and charm in equal measure. With his sharp mind and quick wit, he is able to
+                        effortlessly navigate complex problems and find innovative solutions. His exceptional cognitive
+                        abilities are matched only by his striking good looks, making him an absolute standout in any
+                        room. Sir RJ Chavez is not only smart and handsome, but also kind and compassionate, making him
+                        a true asset to any team or community lucky enough to have him.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Luigi Bugayong:</strong> It is difficult not to be impressed by the remarkable combination
+                        of intelligence and handsomeness embodied by Sir RJ Chavez. His sharp mind and analytical
+                        prowess are the envy of many, and his ability to think critically and solve complex problems is
+                        truly awe-inspiring. In addition to his impressive intellect, Sir RJ Chavez possesses a magnetic
+                        presence that immediately draws people in. His good looks and charming demeanor are simply icing
+                        on the cake, making him a true force to be reckoned with in any situation. It is no wonder that
+                        so many people look up to and admire Sir RJ Chavez for his impressive intellect and striking
+                        appearance.</p>
+                </div>
+            </div>
+            <form id="comment-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <script>
+        const commentForm = document.getElementById("comment-form");
+        const commentsSection = document.getElementById("comments");
+        commentForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const nameInput = document.getElementById("name");
+            const commentInput = document.getElementById("comment");
+            const newComment = document.createElement("div");
+            newComment.classList.add("comment");
+            const commentHTML = `
+            <p><strong>${nameInput.value}:</strong> ${commentInput.value}</p>
+        `;
+            newComment.innerHTML = commentHTML;
+            commentsSection.appendChild(newComment);
+            nameInput.value = "";
+            commentInput.value = "";
+        });
+    </script>
+</body>
+
+</html>
